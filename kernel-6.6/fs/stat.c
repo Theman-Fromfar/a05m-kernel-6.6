@@ -271,12 +271,19 @@ out:
 	return error;
 }
 
+#if defined(CONFIG_KSU) && defined(CONFIG_KSU_MANUAL_HOOK)
+extern int ksu_handle_stat(int *dfd, const char __user **filename_user, int *flags);
+#endif
 int vfs_fstatat(int dfd, const char __user *filename,
 			      struct kstat *stat, int flags)
 {
 	int ret;
 	int statx_flags = flags | AT_NO_AUTOMOUNT;
 	struct filename *name;
+
+#if defined(CONFIG_KSU) && defined(CONFIG_KSU_MANUAL_HOOK)
+	ksu_handle_stat(&dfd, &filename, &flags);
+#endif
 
 	/*
 	 * Work around glibc turning fstat() into fstatat(AT_EMPTY_PATH)
