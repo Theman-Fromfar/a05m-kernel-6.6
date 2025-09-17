@@ -1,5 +1,4 @@
-Samsung A05 (A055F/M)
-One UI 7 6.6 Kernel Source
+Samsung A05 (A055F/M), One UI 7, 6.6 Kernel Source
 - With KernelSU
 
 how to build?
