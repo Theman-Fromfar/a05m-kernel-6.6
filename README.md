@@ -10,7 +10,7 @@ how to build?
 - clone this repo
 - download the toolchain from samsung open source here https://opensource.samsung.com/uploadSearch?searchValue=toolchain or here https://drive.google.com/file/d/1vsQfRgdNHlD0md9tF7j5fpkL_17whzbH/view?usp=sharing
 - extract toolchain.tar.gz on the root of the kernel source
-- run build_kernel.sh, done
+- bash build_kernel.sh
 
 First build is gonna take around 1-5 hours depend on your hardware configuration
 
