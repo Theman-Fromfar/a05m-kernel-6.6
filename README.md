@@ -3,7 +3,7 @@ Samsung A05 (A055F/M), One UI 7, 6.6 Kernel Source
 
 how to build?
 - clone this repo
-- download the toolchain from samsung open source https://opensource.samsung.com/uploadSearch?searchValue=toolchain
+- download the toolchain from samsung open source https://opensource.samsung.com/uploadSearch?searchValue=toolchain or https://drive.google.com/file/d/1vsQfRgdNHlD0md9tF7j5fpkL_17whzbH/view?usp=sharing
 - extract toolchain.tar.gz on the root of the kernel source
 - run build_kernel.sh, done
 
