@@ -34,8 +34,12 @@ export SANDBOX="0"
 cd ..
 
 ANYKERNEL_DIR="$(pwd)/AnyKernel3"
+ANYKERNEL_FILE="$(pwd)/AnyKernel3/anykernel.sh"
 KERNEL_IMAGE="$(pwd)/out/target/product/a05m/obj/KLEAF_OBJ/dist/kernel_device_modules-6.6/mgk_64_k66_kernel_aarch64.user/Image"
-ZIP_NAME_PREFIX="a05m-6.6-kernel"
+ZIPNAME="a05m-6.6-kernel"
+INFO_FILE="$(pwd)/kernel/kernel_device_modules-6.6/kernel/configs/mt6768_overlay.config"
+KERNEL_VERSION_NAME=$(grep "CONFIG_LOCALVERSION=" "$INFO_FILE" | sed -n 's/.*CONFIG_LOCALVERSION="\([^"]*\)".*/\1/p')
+sed -i "s/kernel.string=.*/kernel.string=\"a05m-${KERNEL_VERSION_NAME}-kernel\"/" "$ANYKERNEL_FILE"
 
 set -e
 
@@ -49,12 +53,11 @@ if [ ! -d "$ANYKERNEL_DIR" ]; then
     exit 1
 fi
 
-echo "Kernel image and AnyKernel3 directory found."
+echo "Kernel image and AnyKernel3 directory found"
 
-echo "Copying $KERNEL_IMAGE to $ANYKERNEL_DIR..."
 cp "$KERNEL_IMAGE" "$ANYKERNEL_DIR/"
-TIMESTAMP=$(date +"%Y-%m-%d-%H-%M-%S")
-FINAL_ZIP_NAME="${ZIP_NAME_PREFIX}-${TIMESTAMP}.zip"
+TIMESTAMP=$(date +"(%Y.%m.%d.%H.%M.%S)")
+FINAL_ZIP_NAME="${ZIPNAME}-${KERNEL_VERSION_NAME}-${TIMESTAMP}.zip"
 echo "Creating zip file: $FINAL_ZIP_NAME"
 
 (cd "$ANYKERNEL_DIR" && zip -r9 "../$FINAL_ZIP_NAME" ./*)
