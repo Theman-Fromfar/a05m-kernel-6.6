@@ -20,4 +20,4 @@ you need to flash it from custom recovery (TWRP, etc)
 
 Join my telegram channel for discussion https://t.me/a055perf
 
-thanks @rsuntk for the ksu repo
+thanks [Rsuntk](https://github.com/rsuntkOrgs/KernelSU) for the ksu repo
