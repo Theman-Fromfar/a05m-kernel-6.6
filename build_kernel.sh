@@ -55,7 +55,7 @@ fi
 
 echo "Kernel image and AnyKernel3 directory found"
 
-cp "$KERNEL_IMAGE" "$ANYKERNEL_DIR/"
+mv "$KERNEL_IMAGE" "$ANYKERNEL_DIR/"
 TIMESTAMP=$(date +"(%Y.%m.%d.%H.%M.%S)")
 FINAL_ZIP_NAME="${ZIPNAME}-${KERNEL_VERSION_NAME}-${TIMESTAMP}.zip"
 echo "Creating zip file: $FINAL_ZIP_NAME"
