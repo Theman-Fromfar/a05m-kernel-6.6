@@ -19,3 +19,5 @@ After finish it would automatically compressed into a05m-6.6-kernel-*****.zip
 you need to flash it from custom recovery (TWRP, etc)
 
 Join my telegram channel for discussion https://t.me/a055perf
+
+thanks @rsuntk for the ksu repo
